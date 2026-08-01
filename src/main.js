@@ -1,13 +1,14 @@
 import "./style.css";
-import { init } from "@telegram-apps/sdk";
-
-init();
 
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
-  tg.ready();
-  tg.expand();
+  try {
+    tg.ready();
+    tg.expand();
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 let balance = 1000;
